@@ -1,0 +1,37 @@
+baseurl: ''
+collections:
+  locations:
+    output: true
+    permalink: /locations/:path/
+  services:
+    output: true
+    permalink: /services/:path/
+defaults:
+- scope:
+    path: ''
+    type: services
+  values:
+    layout: default
+- scope:
+    path: ''
+    type: locations
+  values:
+    layout: default
+description: Professional house clearance services in London and Hertfordshire.
+email: info@swiftyclearances.com
+exclude:
+- Gemfile
+- Gemfile.lock
+- _scripts/
+- scripts/
+- node_modules/
+- vendor/
+- .bundle/
+- .git/
+plugins:
+- jekyll-seo-tag
+- jekyll-sitemap
+primary_phone: 07931 476 744
+site_name: Swifty
+title: Swifty Clearances
+url: https://swiftyclearances.com

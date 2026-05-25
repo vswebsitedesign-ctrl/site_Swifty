@@ -1,0 +1,20 @@
+<section style="max-width:860px;margin:2rem auto;padding:0 1.25rem;">
+  <h2 style="color:#3d5a80;margin-bottom:0.5rem;">Find Our Service Near You</h2>
+  <p style="margin-bottom:1rem;">Type your town or area to find your local service page.</p>
+  <input type="text" id="location-search" placeholder="Start typing your town..." autocomplete="off" style="width:100%;padding:12px 16px;font-size:1rem;border:2px solid #3d5a80;border-radius:4px;box-sizing:border-box;">
+  <div id="location-results" style="margin-top:0.75rem;"></div>
+</section>
+<script>
+  var locations = [{% for location in site.data.locations %}{"name":"{{ location[0] }}","slug":"{{ location[0] | downcase | replace: ' ', '-' | replace: "'", '' }}"}{% unless forloop.last %},{% endunless %}{% endfor %}];
+  var serviceSlug = "{{ page.permalink | split: '/' | compact | last }}";
+  document.getElementById('location-search').addEventListener('input', function(){
+    var val = this.value.toLowerCase().trim();
+    var box = document.getElementById('location-results');
+    if(val.length < 2){ box.innerHTML = ''; return; }
+    var matches = locations.filter(function(l){ return l.name.toLowerCase().indexOf(val) === 0; }).slice(0, 8);
+    if(matches.length === 0){ box.innerHTML = '<p style="color:#666;font-size:0.9rem;">No locations found — try a different spelling.</p>'; return; }
+    box.innerHTML = matches.map(function(l){
+      return '<a href="/services/' + serviceSlug + '/' + l.slug + '/" style="display:block;padding:10px 14px;margin-bottom:6px;background:#e7f4fc;color:#3d5a80;text-decoration:none;border-radius:4px;border:1px solid #3d5a80;font-weight:600;">' + l.name + '</a>';
+    }).join('');
+  });
+</script>

@@ -1,0 +1,14 @@
+<section class="map-section">
+  <h2 class="section-heading">{{ page.service_name }} in {{ page.location_name }} — Find Us</h2>
+  <div class="map-embed">
+    <iframe
+      title="{{ page.service_name }} in {{ page.location_name }}"
+      width="100%"
+      height="400"
+      style="border:0;display:block;"
+      loading="lazy"
+      allowfullscreen
+      src="https://maps.google.com/maps?q={{ page.location_name | url_encode }},+UK&output=embed&embedded=true">
+    </iframe>
+  </div>
+</section>

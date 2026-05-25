@@ -1,0 +1,10 @@
+{% if loc %}
+<h2 class="section-heading">Our Local Knowledge of {{ page.location_name }}</h2>
+<div class="trust-banner">
+  {% if loc.property_types_cleared %}<div class="trust-item"><div class="icon">🏠</div><h3>Property Types</h3><p>{{ loc.property_types_cleared }}</p></div>{% endif %}
+  {% if loc.clearance_scenarios %}<div class="trust-item"><div class="icon">📋</div><h3>Clearance Scenarios</h3><p>{{ loc.clearance_scenarios }}</p></div>{% endif %}
+  {% if loc.clearance_experience %}<div class="trust-item"><div class="icon">⭐</div><h3>Our Experience</h3><p>{{ loc.clearance_experience }}</p></div>{% endif %}
+  {% if loc.local_clearance_knowledge %}<div class="trust-item"><div class="icon">🔧</div><h3>Local Knowledge</h3><p>{{ loc.local_clearance_knowledge }}</p></div>{% endif %}
+  {% if loc.postcode_coverage %}<div class="trust-item"><div class="icon">📮</div><h3>Postcode Coverage</h3><p>{{ loc.postcode_coverage }}</p></div>{% endif %}
+</div>
+{% endif %}

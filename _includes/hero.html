@@ -1,0 +1,11 @@
+<div class="hero">
+  <div class="hero-content">
+    <h1>{{ page.hero_title | default: site.title }}</h1>
+    {% if page.hero_subtitle %}
+    <p>{{ page.hero_subtitle }}</p>
+    {% endif %}
+    {% if page.hero_cta %}
+    <a href="{{ page.hero_cta_url | default: '/contact/' }}" class="btn btn-primary">{{ page.hero_cta }}</a>
+    {% endif %}
+  </div>
+</div>
